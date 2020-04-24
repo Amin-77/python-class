@@ -1,5 +1,4 @@
 class time:
-    i=0
     def __init__(obj,h,m,s):
         obj.hour = h
         obj.minute = m
@@ -21,20 +20,16 @@ class time:
         obj.hour += obj2.hour
         obj.minute += obj2.minute
         obj.second += obj2.second
-    def regulator_plus(obj):
+        print('.\n')
         while(obj.second>=60):
+            print('.\n')
             obj.second-=60
-            i+=1
-        obj.minute +=i
-        i=0
+            obj.minute +=1
         while(obj.minute>=60):
-            obj.second-=60
-            i+=1
-        obj.hour +=i
-        i=0
+            obj.minute -=60
+            obj.hour +=1
         while(obj.hour>=24):
             obj.hour-=24
-            
     def __eq__(obj,obj1):
         if (obj.hour==obj1.hour) and (obj.minute==obj1.minute) and (obj.second==obj1.second):
             return True
@@ -75,17 +70,11 @@ class time:
         obj.hour -= obj1.hour
         obj.minute -= obj1.minute
         obj.second -= obj1.second
-    def sub_regulator (obj):
-        i=0
         while(obj.second<0):
             obj.second+=60
-            i-=1
-        obj.minute -=i
-        i=0
+            obj.minute -=1
         while(obj.minute<0):
-            obj.second+=60
-            i-=1
-        obj.hour -=i
-        i=0
+            obj.minute+=60
+            obj.hour -=1
         while(obj.hour<0):
             obj.hour+=24
